@@ -1,7 +1,7 @@
 # P2P-chat-
 # A peer-to-peer chat for multiple users using threads, signals and protocols
 
-# For the Peer
+## For the Peer
 A peer that is connected to a server using TCP/IP connection and to other peers using UDP connection.
 The peer can:
 1) write messages to a chat
@@ -20,3 +20,5 @@ Protocols used: Total Order Multicast (chat) , 2 PC (edit), consistent global st
 Technologies used: Ubuntu 18.04, gcc 7.5, Coded in C
 compile: gcc peer.c -o peer -lpthread
 Run: ./peer 9000 (...9256) 
+
+## For the server
