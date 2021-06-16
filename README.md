@@ -17,10 +17,12 @@ All users must be active since the beggining.
 The DB is implemented using local txt files. The connections are made using Stream and Datagram sockets.
 Before sending messages to the chat, or editing you have to run /list from the menu.
 #
-
 Protocols used: Total Order Multicast (chat) , 2 PC (edit), consistent global states (server)
+#
 Technologies used: Ubuntu 18.04, gcc 7.5, Coded in C
+#
 compile: gcc peer.c -o peer -lpthread
+#
 Run: ./peer 9000 (...9256) 
 
 ## For the server
@@ -39,6 +41,9 @@ Consistent states: everytime the local txt file of a peer is changed (/msg or /e
 The server must check the time of arrival to all peer (TS) and the state of the key-edit.
 #
 Protocols used: Total Order Multicast (chat) , 2 PC (edit), consistent global states (server)
+#
 Technologies used: Ubuntu 18.04, gcc 7.5, Coded in C
+#
 compile: gcc server.c -o server -lpthread
+#
 Run: ./server
