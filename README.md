@@ -22,3 +22,20 @@ compile: gcc peer.c -o peer -lpthread
 Run: ./peer 9000 (...9256) 
 
 ## For the server
+A server that is connected to a p2p system using TCP/IP connection 
+The server can:
+1) handle the chat commands
+2) keep the list of connected users/peers
+3) create global consistent states and recover the system
+4) handle the signals of a peer departure
+The server is built using:
+- as many threads as the peers (1 new peer = 1 new thread)
+- signals for exiting of the peers are implemented
+- locking of shared_id of the connected peers and shared_buffer for sending messages to all peers
+menu of commands: /help --> /msg (message), /edit (message) - (number of entry you want to edit), /list
+Consistent states: everytime the local txt file of a peer is changed (/msg or /edit) the local states are sent to the server.
+The server must check the time of arrival to all peer (TS) and the state of the key-edit.
+Protocols used: Total Order Multicast (chat) , 2 PC (edit), consistent global states (server)
+Technologies used: Ubuntu 18.04, gcc 7.5, Coded in C
+compile: gcc server.c -o server -lpthread
+Run: ./server
